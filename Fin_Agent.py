@@ -12,7 +12,7 @@ from datetime import date, timedelta
 import pandas as pd
 import os
 
-# APIキーの設定
+# API setting
 os.environ["OPENAI_API_KEY"] = st.secrets["OPENAI_API_KEY"]
 NEWS_API_KEY = st.secrets["NEWS_API_KEY"]
 
