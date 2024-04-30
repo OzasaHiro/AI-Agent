@@ -1,7 +1,0 @@
-streamlit
-newsapi-python
-matplotlib
-seaborn
-pandas
-yfinance
-llama-index
