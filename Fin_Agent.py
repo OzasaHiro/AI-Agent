@@ -22,7 +22,7 @@ llm = OpenAI(model="gpt-4-turbo")
 # Streamlitの設定
 st.title('Financial Analysis Agent')
 
-system_prompt = "Please display what you thought every step."
+system_prompt = "Please use def-what_you_thought to display what you thought every step."
 prompt = st.text_input("Please enter a query:", "")
 
 final_prompt = prompt + system_prompt
@@ -35,7 +35,8 @@ class FinanceTools(BaseToolSpec):
                   "last_stock_price",
                   "search_news",
                   "summarize_news_news_api",
-                  "plot_stock_price"
+                  "plot_stock_price",
+                  "what_you_thought"
                   ]
 
   def __init__(self) -> None:
@@ -113,7 +114,7 @@ class FinanceTools(BaseToolSpec):
       prompt = f"Summarize the following text by extractin the key insights: {news}"
       response = llm.complete(prompt).text
 
-      st.write(response)
+      #st.write(response)
 
       return response
 
@@ -136,6 +137,14 @@ class FinanceTools(BaseToolSpec):
       st.pyplot(plt)
 
       return 'Plotted'
+  def what_you_thought(self, comment: str) -> str:
+        """
+        Please tell the use what you thought.
+        comment (str): what you thought and what you will do next.
+        """
+
+        st.write(comment)
+
 
 
 # エージェントの初期化
