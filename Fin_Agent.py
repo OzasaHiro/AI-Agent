@@ -37,19 +37,19 @@ class FinanceTools(BaseToolSpec):
   def __init__(self) -> None:
         """Initialize the Yahoo Finance tool spec."""
 
-'''
-  def query_user_for_info(self, comment: str) -> str:
-        """
-        Inquire the user for information necessary to perform the task, such as detailing and concretizing the query.
-        Args:
-        comment (str): what you want to know about.
-        info (str): keyword or information required for performing the task.
-        When using this tool, ask the user what you want to know about
-        """
-        st.write("requiring_query_additional_information")
-        st.write(comment)
-        info = st.text_input("please add information")
-        return info'''
+
+#  def query_user_for_info(self, comment: str) -> str:
+#        """
+#        Inquire the user for information necessary to perform the task, such as detailing and concretizing the query.
+#        Args:
+#        comment (str): what you want to know about.
+#        info (str): keyword or information required for performing the task.
+#        When using this tool, ask the user what you want to know about
+#        """
+#        st.write("requiring_query_additional_information")
+#        st.write(comment)
+#        info = st.text_input("please add information")
+#        return info
 
   def stock_prices(self, ticker: str) -> pd.DataFrame:
       """
