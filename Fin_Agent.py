@@ -117,7 +117,7 @@ class FinanceTools(BaseToolSpec):
       For a given ticker symbol plot the different values given in list_column during the last month .
       Args:
       ticker (str): the stock ticker to be given to yfinance
-      list_column (list): the different columns to plot. It could be Close,Open, High, Volume.
+      list_column (list): the different columns to plot. It could be Close,Open, High.
       """
 
       df = self.stock_prices(ticker)
