@@ -46,6 +46,7 @@ class FinanceTools(BaseToolSpec):
         info (str): keyword or information required for performing the task.
         When using this tool, ask the user what you want to know about
         """
+        st.write("requiring_query_additional_information")
         st.write(comment)
         info = st.text_input()
         return info
