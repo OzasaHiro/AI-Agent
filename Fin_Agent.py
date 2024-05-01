@@ -145,5 +145,5 @@ if st.button('Analyze'):
         response = agent.chat(prompt)
         status_text.text('Analysis complete.')
         st.write("Response from the agent:")
-        st.write(response[0].text)
+        st.markdown(response)
         #st.pyplot()
