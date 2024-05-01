@@ -21,7 +21,11 @@ llm = OpenAI(model="gpt-4-turbo")
 
 # Streamlitの設定
 st.title('Financial Analysis Agent')
+
+system_prompt = "Please display what you thought every step."
 prompt = st.text_input("Please enter a query:", "")
+
+final_prompt = prompt + system_prompt
 
 class FinanceTools(BaseToolSpec):
   """Finance tools spec."""
@@ -133,8 +137,8 @@ class FinanceTools(BaseToolSpec):
       return 'Plotted'
   def speak_what_you_thinking(self, comment: str) -> str:
     """
-    Summarize and tell user what you are thinking and what you will do next.
-    comment (str): what you are thinking and what you will do next.
+    Summarize and tell user what you thought and what you will do next.
+    comment (str): what you thought and what you will do next.
     Please display your comment to the user every thinking step.
     """
 
@@ -151,7 +155,7 @@ status_text = st.empty()
 if st.button('Analyze'):
     if prompt:
         status_text.text('Analyzing...')
-        response = agent.chat(prompt)
+        response = agent.chat(final_prompt)
         status_text.text('Analysis complete.')
         st.write("Response from the agent:")
         st.markdown(response)
