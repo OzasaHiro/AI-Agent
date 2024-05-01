@@ -48,7 +48,7 @@ class FinanceTools(BaseToolSpec):
         """
         st.write("requiring_query_additional_information")
         st.write(comment)
-        info = st.text_input()
+        info = st.text_input("please add information")
         return info
 
   def stock_prices(self, ticker: str) -> pd.DataFrame:
