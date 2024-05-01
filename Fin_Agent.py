@@ -22,7 +22,7 @@ llm = OpenAI(model="gpt-4-turbo")
 # Streamlitの設定
 st.title('Financial Analysis Agent')
 
-system_prompt = "Please use def-what_you_thought to display what you thought every step."
+system_prompt = "Please use what_you_thought-function every step to display what you thought."
 prompt = st.text_input("Please enter a query:", "")
 
 final_prompt = prompt + system_prompt
@@ -139,12 +139,11 @@ class FinanceTools(BaseToolSpec):
       return 'Plotted'
   def what_you_thought(self, comment: str) -> str:
         """
-        Please tell the use what you thought.
+        Please tell the client what you thought.
         comment (str): what you thought and what you will do next.
         """
 
         st.write(comment)
-
 
 
 # エージェントの初期化
