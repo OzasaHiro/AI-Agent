@@ -26,7 +26,7 @@ prompt = st.text_input("Please enter a query:", "")
 class FinanceTools(BaseToolSpec):
   """Finance tools spec."""
   spec_functions = [
-                  "query_user_for_info",
+                  #"query_user_for_info",
                   "stock_prices",
                   "last_stock_price",
                   "search_news",
@@ -37,7 +37,7 @@ class FinanceTools(BaseToolSpec):
   def __init__(self) -> None:
         """Initialize the Yahoo Finance tool spec."""
 
-
+'''
   def query_user_for_info(self, comment: str) -> str:
         """
         Inquire the user for information necessary to perform the task, such as detailing and concretizing the query.
@@ -49,7 +49,7 @@ class FinanceTools(BaseToolSpec):
         st.write("requiring_query_additional_information")
         st.write(comment)
         info = st.text_input("please add information")
-        return info
+        return info'''
 
   def stock_prices(self, ticker: str) -> pd.DataFrame:
       """
