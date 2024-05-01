@@ -133,7 +133,7 @@ class FinanceTools(BaseToolSpec):
 # エージェントの初期化
 finance_tool = FinanceTools()
 finance_tool_list = finance_tool.to_tool_list()
-agent = ReActAgent.from_tools(finance_tool_list, llm=finance_tool.llm, verbose=True)
+agent = ReActAgent.from_tools(finance_tool_list, llm=llm, verbose=True)
 
 # Streamlitのインタラクション
 status_text = st.empty()
