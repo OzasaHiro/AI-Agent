@@ -142,7 +142,7 @@ class FinanceTools(BaseToolSpec):
       Please display your comment to the user every thinking step.
       """
 
-      st.write(comment)
+      st.markdown(comment)
 
       return comment
 
