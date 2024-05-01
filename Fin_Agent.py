@@ -136,13 +136,15 @@ class FinanceTools(BaseToolSpec):
 
       return 'Plotted'
   def speak_what_you_thinking(self, comment: str) -> str:
-    """
-    Summarize and tell user what you thought and what you will do next.
-    comment (str): what you thought and what you will do next.
-    Please display your comment to the user every thinking step.
-    """
+      """
+      Summarize and tell user what you thought and what you will do next.
+      comment (str): what you thought and what you will do next.
+      Please display your comment to the user every thinking step.
+      """
 
-    st.write(comment)
+      st.write(comment)
+
+      return comment
 
 # エージェントの初期化
 finance_tool = FinanceTools()
