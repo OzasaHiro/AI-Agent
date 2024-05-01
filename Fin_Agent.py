@@ -44,25 +44,29 @@ class FinanceTools(BaseToolSpec):
 
 
   def query_user_for_info(self, comment: str) -> str:
-      """
-      Inquire the user for information necessary to perform the task, such as detailing and concretizing the query.  
-      Args:
-      comment (str): what you want to know about.
-      info (str): keyword or information required for performing the task.
-      When using this tool, ask the user what you want to know about
-      """
-      st.write("requiring_query_additional_information")
-      st.write(comment)
-      if 'info' not in st.session_state:
-          st.session_state['info'] = ''
-      info = st.text_input("please add information", key="info_input")
-      submit_button = st.button("Submit")
-  
-      if submit_button:
-          st.session_state['info'] = info  # Update session state with the input
-          return info
-      else:
-          return None  # Return None if no info is submitted yet
+    """
+    Inquire the user for information necessary to perform the task, such as detailing and concretizing the query.
+    Args:
+    comment (str): what you want to know about.
+    """
+    st.write("requiring_query_additional_information")
+    st.write(comment)
+    
+    # セッション状態でinfoを初期化
+    if 'info' not in st.session_state:
+        st.session_state['info'] = ''
+    
+    # ユーザー入力を受け取る
+    info = st.text_input("Please add information", key="info_input", value=st.session_state['info'])
+    
+    # Submitボタン
+    submit_button = st.button("Submit", key="submit_info")
+    
+    if submit_button:
+        st.session_state['info'] = info  # セッション状態を更新
+        return info  # 情報を返す
+    else:
+        return None  # まだ情報が提出されていない場合はNoneを返す
 
   def stock_prices(self, ticker: str) -> pd.DataFrame:
       """
