@@ -113,6 +113,8 @@ class FinanceTools(BaseToolSpec):
       prompt = f"Summarize the following text by extractin the key insights: {news}"
       response = llm.complete(prompt).text
 
+      st.write(response)
+
       return response
 
   def plot_stock_price(self, ticker: str, list_column:list=['Close','Volume']) -> pd.DataFrame:
