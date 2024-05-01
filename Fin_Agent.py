@@ -35,8 +35,7 @@ class FinanceTools(BaseToolSpec):
                   "last_stock_price",
                   "search_news",
                   "summarize_news_news_api",
-                  "plot_stock_price",
-                  "speak_what_you_thinking"
+                  "plot_stock_price"
                   ]
 
   def __init__(self) -> None:
@@ -122,7 +121,7 @@ class FinanceTools(BaseToolSpec):
       For a given ticker symbol plot the different values given in list_column during the last month .
       Args:
       ticker (str): the stock ticker to be given to yfinance
-      list_column (list): the different columns to plot. It could be Close,Open, High. Not include Volume.
+      list_column (list): the different columns to plot. It could be Close,Open, High. DO NOT include Volume.
       """
 
       df = self.stock_prices(ticker)
@@ -135,16 +134,7 @@ class FinanceTools(BaseToolSpec):
       st.pyplot(plt)
 
       return 'Plotted'
-  def speak_what_you_thinking(self, comment: str) -> str:
-      """
-      Summarize and tell user what you thought and what you will do next.
-      comment (str): what you thought and what you will do next.
-      Please display your comment to the user every thinking step.
-      """
 
-      st.markdown(comment)
-
-      return comment
 
 # エージェントの初期化
 finance_tool = FinanceTools()
