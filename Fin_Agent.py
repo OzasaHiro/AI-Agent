@@ -31,7 +31,8 @@ class FinanceTools(BaseToolSpec):
                   "last_stock_price",
                   "search_news",
                   "summarize_news_news_api",
-                  "plot_stock_price"
+                  "plot_stock_price",
+                  "speak_what_you_thinking"
                   ]
 
   def __init__(self) -> None:
@@ -130,6 +131,14 @@ class FinanceTools(BaseToolSpec):
       st.pyplot(plt)
 
       return 'Plotted'
+  def speak_what_you_thinking(self, comment: str) -> str:
+    """
+    Summarize and tell user what you are thinking and what you will do next.
+    comment (str): what you are thinking and what you will do next.
+    Please display your comment to the user every thinking step.
+    """
+
+    st.write(comment)
 
 # エージェントの初期化
 finance_tool = FinanceTools()
